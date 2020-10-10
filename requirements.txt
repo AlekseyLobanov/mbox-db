@@ -1,0 +1,3 @@
+tqdm==4.50.2
+mail-parser==3.12.0
+python-magic==0.4.16
