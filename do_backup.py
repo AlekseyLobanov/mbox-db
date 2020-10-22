@@ -104,7 +104,18 @@ class SqliteMetadataBackend:
             CREATE INDEX IF NOT EXISTS `index_attachment_size` ON `attachments`(`size`);
         """)
 
+
     def add_email(self, mail_id, from_list, to_list, mail_subject, mail_date):
+        try:
+            return self._add_email(mail_id, from_list, to_list, mail_subject, mail_date)
+        except sqlite3.InterfaceError:
+            logging.exception(
+                f"Unable to add email from {from_list} to "
+                f"{to_list} subject {mail_subject} date {mail_date}"
+            )
+        return False
+
+    def _add_email(self, mail_id, from_list, to_list, mail_subject, mail_date):
         is_added = True
         contact_ids = {}
         for name, email in list(from_list) + list(to_list):
