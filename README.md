@@ -16,7 +16,7 @@ Data is not duplicated, so the backup takes up little space.
 
 0. You need Python 3.6+ and pip.
 1. Download `.mbox` files from your mail provider.
-I use (this](https://github.com/ralbear/IMAPbackup) simple tool.
+I use [this](https://github.com/ralbear/IMAPbackup) simple tool.
 2. Install dependencies `pip3 install --user -r requirements.txt` or `pip3 install --user -r requirements.txt` (may require root on Linux or admin rights on Windows).
 3. Run `python3 do_backup.py -m meta.db -s storage -i PATH_TO_MBOX -p`
 4. Your _write-only_ objects located at `storage`,
