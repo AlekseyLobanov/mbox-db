@@ -110,7 +110,7 @@ class SqliteMetadataBackend:
             return self._add_email(mail_id, from_list, to_list, mail_subject, mail_date)
         except sqlite3.InterfaceError:
             logging.exception(
-                f"Unable to add email from {from_list} to "
+                f"Unable to add email id {mail_id} from {from_list} to "
                 f"{to_list} subject {mail_subject} date {mail_date}"
             )
         return False
