@@ -106,6 +106,11 @@ class SqliteMetadataBackend:
 
 
     def add_email(self, mail_id, from_list, to_list, mail_subject, mail_date):
+        if isinstance(mail_subject, list):
+            if mail_subject:
+                mail_subject = mail_subject[0]
+            else:
+                mail_subject = ""
         try:
             return self._add_email(mail_id, from_list, to_list, mail_subject, mail_date)
         except sqlite3.InterfaceError:
